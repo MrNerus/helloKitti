@@ -1,0 +1,144 @@
+CREATE TABLE Blogs (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    author TEXT,
+    content TEXT,
+    imgPath TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Users (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(32),
+    email VARCHAR(32),
+    passsword VARCHAR(255)
+)
+
+CREATE TABLE Comments (
+    id INTEGER PRIMARY KEY,
+    user INTEGER,  -- foreign key reference to Users table
+    post INTEGER,  -- foreign key reference to Blogs table
+    comment_text TEXT,
+    parent_comment_id INTEGER,  -- self-reference to Comments table
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Likes (
+    id INTEGER PRIMARY KEY,
+    user INTEGER,  -- foreign key reference to Users table
+    post INTEGER,  -- foreign key reference to Blogs table
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE CommentLikes (
+    id INTEGER PRIMARY KEY,
+    comment INTEGER,  -- foreign key reference to Comments table
+    user INTEGER,  -- foreign key reference to Users table
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+-- Creating all users
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('denazifying televiewed buttocks', 'denazifyingteleviewedbuttocks@delphiniums.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('channelers soreheaded converting', 'channelerssoreheadedconverting@sanctifiers.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('inhumer strolls unkink', 'inhumerstrollsunkink@monarchist.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('fanion', 'fanion@multiprocessing.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('obligated downless', 'obligateddownless@reequipments.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('youth rocking dentation', 'youthrockingdentation@fortunately.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('chewiness', 'chewiness@sleazier.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('deface sandburrs spadework', 'defacesandburrsspadework@tongued.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('featured pridefully dentation', 'featuredpridefullydentation@bonhomie.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('marblier', 'marblier@brassies.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('sancta', 'sancta@pollinosis.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('lowboy', 'lowboy@nonintrusive.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('slipsheeting', 'slipsheeting@nodding.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('coexistent hiccups rhizopuses', 'coexistenthiccupsrhizopuses@encasements.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('horsebeans timocracies puttering', 'horsebeanstimocraciesputtering@milfoil.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('downless save', 'downlesssave@loosestrife.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('motorship', 'motorship@chelations.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('seethe ascensions', 'seetheascensions@ambuscaded.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('cadasters taverna conjunctivitis', 'cadasterstavernaconjunctivitis@toadyish.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('generalizations written', 'generalizationswritten@seldom.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('topic', 'topic@switched.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('textuaries', 'textuaries@vindicating.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('frauleins quatrains terrorisms', 'frauleinsquatrainsterrorisms@integrands.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('timbral faineance', 'timbralfaineance@dimers.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('mahjong pinchbugs', 'mahjongpinchbugs@carmagnoles.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('milfoil suckling', 'milfoilsuckling@epistlers.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('amasser chondromas', 'amasserchondromas@waif.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('countersigns polyolefin', 'countersignspolyolefin@tablemate.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('queenships bellied', 'queenshipsbellied@escolar.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('python', 'python@patriciates.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('calumniously vergence', 'calumniouslyvergence@pinchbugs.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('teriyakis bridgework', 'teriyakisbridgework@scleroma.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('demantoids resmooths curtseys', 'demantoidsresmoothscurtseys@basion.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('morselled', 'morselled@zooplanktons.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('prepunches yegg', 'prepunchesyegg@outshaming.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('unwedded mealies plenisms', 'unweddedmealiesplenisms@placeholder.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('piloted tinnily toadyish', 'pilotedtinnilytoadyish@grovelled.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('epistlers modernistic hinter', 'epistlersmodernistichinter@eczemas.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('crosshair', 'crosshair@distinctest.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('acceder pollinosis defiant', 'accederpollinosisdefiant@tenebrionids.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('derailleur addrest', 'derailleuraddrest@bridgework.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('brusker touzling', 'bruskertouzling@retentivenesses.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('prettified', 'prettified@chordamesoderms.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('nuttiest conioses injectants', 'nuttiestconiosesinjectants@overroast.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('outwits', 'outwits@sublimer.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('hematoporphyrin orthorhombic', 'hematoporphyrinorthorhombic@francolin.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('widely clannishness', 'widelyclannishness@estrogenic.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('trisyllable', 'trisyllable@hunkie.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('prosier dueler', 'prosierdueler@administrative.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('conifer thereof containable', 'coniferthereofcontainable@ambuscaded.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('hangups', 'hangups@amphibrach.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('traducing cashmere disunites', 'traducingcashmeredisunites@mountings.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('knuckling', 'knuckling@egalitarian.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('horsebeans aphanite', 'horsebeansaphanite@sirras.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('floodlights birse ecumenists', 'floodlightsbirseecumenists@outhumor.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('predestinarian', 'predestinarian@telsons.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('dismay bisexualities', 'dismaybisexualities@prettified.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('hyalites looniness', 'hyaliteslooniness@normative.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('toiling chowsing scooped', 'toilingchowsingscooped@essentialism.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('aggrandizement overwinters', 'aggrandizementoverwinters@leviathans.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('cheapjacks talebearings lamer', 'cheapjackstalebearingslamer@piroplasm.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('socializer gaskin', 'socializergaskin@freewheel.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('toiling', 'toiling@infield.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('tickles thromboxane hunkie', 'ticklesthromboxanehunkie@yep.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('bemedaled', 'bemedaled@extirpation.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('intussuscepting ensphered', 'intussusceptingensphered@zooplanktons.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('monarchist derailleur dystrophy', 'monarchistderailleurdystrophy@topknot.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('denazifying', 'denazifying@egomaniac.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('sweetening rhizoplane', 'sweeteningrhizoplane@dasymeter.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('intumescence ritter loaded', 'intumescenceritterloaded@disequilibrated.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('betattering casbahs', 'betatteringcasbahs@volumeter.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('flareup', 'flareup@indinavirs.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('epineuria', 'epineuria@isogone.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('piciform', 'piciform@retentivenesses.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('analcime dismay nonparties', 'analcimedismaynonparties@freewheel.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('womanpower sillabub aphanite', 'womanpowersillabubaphanite@floodlights.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('puttering tachyarrhythmia', 'putteringtachyarrhythmia@bigamies.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('thirds seising', 'thirdsseising@reglet.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('skinked appeal', 'skinkedappeal@aggrandizement.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('python', 'python@stenotypy.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('slinger', 'slinger@genderizing.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('divergences', 'divergences@administrative.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('diatessarons explained', 'diatessaronsexplained@mahjong.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('belike', 'belike@mediastinal.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('ebooks athwartships mutchkins', 'ebooksathwartshipsmutchkins@toolholder.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('sweetening forewords having', 'sweeteningforewordshaving@philanthropist.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('winesap', 'winesap@colocate.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('acupressure fanion crosshair', 'acupressurefanioncrosshair@traducing.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('slinger compress tabulated', 'slingercompresstabulated@chukar.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('genitive meagernesses', 'genitivemeagernesses@ceilometer.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('transcribes premarital', 'transcribespremarital@slights.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('substitutionary', 'substitutionary@python.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('coccidium', 'coccidium@overclose.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('anaerobium cosmographer', 'anaerobiumcosmographer@unrests.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('floggable fyttes infringers', 'floggablefyttesinfringers@hydroxylases.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('puppyish enabled', 'puppyishenabled@aerostatics.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('ambuscaded', 'ambuscaded@ileitides.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('emulsoid', 'emulsoid@hinter.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('mistouching fabs bighted', 'mistouchingfabsbighted@chytrids.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+INSERT INTO hellokitti_users (name, email, avatar, password) VALUES ('tattie oribatids numerated', 'tattieoribatidsnumerated@campstool.com', '/media/avatar/default.png', '$2b$12$YEdvRtwHsVa.R2c4XSAziu/FJFAQ89069jv6B5N0d3lY/pNHVQBHO');
+
+
