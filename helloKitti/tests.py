@@ -1072,3 +1072,155 @@ import bcrypt
 #     print(f"Inserted Blog No. {i}")
 # conn.commit()
 # conn.close()
+
+
+
+# =====================================================================
+# 
+# 
+# populating Testimonials
+# 
+# 
+# =====================================================================
+# import sqlite3
+# from random import randint
+# conn = sqlite3.connect('./db.sqlite3')
+# cur = conn.cursor()
+# for i in range(0,10):
+#     name        = " ".join([words[randint(0,999)] for i in range(0,randint(2,4))])
+#     designation = " ".join([words[randint(0,999)] for i in range(0,1)]) + ' at ' + " ".join([words[randint(0,999)] for i in range(0,randint(1,2))])
+#     comment     = " ".join([words[randint(0,999)] for i in range(0,randint(15,30))])
+#     query = f"INSERT INTO helloKitti_testimonials (avatar, name, designation, comment, said_at) VALUES ('/media/avatar/default.png', '{name}', '{designation}', '{comment}', datetime('now'));"
+#     cur.execute(query)
+#     print(f"Inserted Testimonial No. {i}")
+# conn.commit()
+# conn.close()
+
+
+
+# =====================================================================
+# 
+# 
+# populating Likes Table
+# 
+# 
+# =====================================================================
+# import sqlite3
+# from random import randint
+# conn = sqlite3.connect('./db.sqlite3')
+# cur = conn.cursor()
+# cur.execute("PRAGMA foreign_keys = ON;")
+# counter = 0
+# # cur.execute("drop table helloKitti_likes;")
+# while True:
+#     if counter == 100: break
+#     selectU = randint(1,100)
+#     selectP = randint(11,20)
+#     cur.execute(f"SELECT post_id_id, user_id_id FROM helloKitti_Likes WHERE user_id_id = {selectU} AND post_id_id = {selectP};")
+#     result = cur.fetchone()
+#     if result:
+#         print(result)
+#         print("Already Liked.")
+#         continue
+#     query = f"INSERT INTO helloKitti_Likes (user_id_id, post_id_id, liked_at) VALUES ({selectU}, {selectP}, datetime('now'));"
+#     cur.execute(query)
+#     print(f"{selectU} likes {selectP}")
+#     counter += 1
+# conn.commit()
+# conn.close()
+
+
+# =====================================================================
+# 
+# 
+# populating Comments
+# 
+# 
+# =====================================================================
+# import sqlite3
+# from random import randint
+# conn = sqlite3.connect('./db.sqlite3')
+# cur = conn.cursor()
+# cur.execute("PRAGMA foreign_keys = ON;")
+# counter = 0
+# while True:
+#     if counter == 100: break
+#     comment = " ".join([words[randint(0,999)] for i in range(0, randint(5,50))])
+#     user = randint(1,100)
+#     post = randint(11,20)
+#     query = f"INSERT INTO helloKitti_Comments (user_id_id, post_id_id, comment_text, commented_at) VALUES ({user}, {post},'{comment}', datetime('now'));"
+#     cur.execute(query)
+#     print(f"{user} commented at {post}")
+#     counter += 1
+# conn.commit()
+# conn.close()
+
+
+
+# =====================================================================
+# 
+# 
+# populating Nested Comments
+# 
+# 
+# =====================================================================
+# import sqlite3
+# from random import randint
+# conn = sqlite3.connect('./db.sqlite3')
+# cur = conn.cursor()
+# cur.execute("PRAGMA foreign_keys = ON;")
+# counter = 0
+# rows = (cur.execute("SELECT id, post_id_id from helloKitti_Comments WHERE parent_comment_id_id IS NULL OR parent_comment_id_id = '';")).fetchall()
+# parentComments = [(row[0], row[1]) for row in rows]
+# print(parentComments)
+# while True:
+#     if counter == 100: break
+#     comment = " ".join([words[randint(0,999)] for i in range(0, randint(5,50))])
+#     user = randint(1,100)
+#     parentCommentMeta = randint(0, len(parentComments)-1)
+#     post = parentComments[parentCommentMeta][1]
+#     parentComment = parentComments[parentCommentMeta][0]
+#     query = f"INSERT INTO helloKitti_Comments (user_id_id, post_id_id, comment_text, parent_comment_id_id, commented_at) VALUES ({user}, {post},'{comment}',{parentComment}, datetime('now'));"
+#     cur.execute(query)
+#     print(f"{user} commented at {post}")
+#     counter += 1
+# conn.commit()
+# conn.close()
+
+
+
+# =====================================================================
+# 
+# 
+# populating CommentsLikes
+# 
+# 
+# =====================================================================
+import sqlite3
+from random import randint
+conn = sqlite3.connect('./db.sqlite3')
+cur = conn.cursor()
+cur.execute("PRAGMA foreign_keys = ON;")
+counter = 0
+rows = (cur.execute("SELECT id from helloKitti_Comments;")).fetchall()
+comments = [row[0] for row in rows]
+print(comments)
+rows = (cur.execute("SELECT id from helloKitti_users;")).fetchall()
+users = [row[0] for row in rows]
+print(users)
+while True:
+    if counter == 1000: break
+    user = users[randint(0,len(users))-1]
+    comment = comments[randint(0,len(comments))-1]
+    cur.execute(f"SELECT id FROM helloKitti_commentlikes WHERE user_id_id = {user} AND comment_id_id = {comment};")
+    result = cur.fetchone()
+    if result:
+        print(result)
+        print("Already Liked.")
+        continue
+    query = f"INSERT INTO helloKitti_commentlikes (user_id_id, comment_id_id, liked_at) VALUES ({user}, {comment}, datetime('now'));"
+    cur.execute(query)
+    print(f"{user} likes comment#{comment}")
+    counter += 1
+conn.commit()
+conn.close()

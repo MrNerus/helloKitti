@@ -51,7 +51,7 @@ class Comments(models.Model):
     post_id = models.ForeignKey(Blogs, related_name='comments', on_delete=models.CASCADE)
     comment_text = models.TextField()
     parent_comment_id = models.ForeignKey('self', related_name='replies', on_delete=models.CASCADE, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    commented_at = models.DateTimeField(auto_now_add=True)
 
 # =================================================================== 
 # CREATE TABLE Likes (
@@ -63,7 +63,8 @@ class Comments(models.Model):
 class Likes(models.Model):
     user_id = models.ForeignKey(Users, related_name="likes", on_delete=models.CASCADE)
     post_id = models.ForeignKey(Blogs, related_name="likes", on_delete=models.CASCADE)
-    liked_at = models.DateTimeField(auto_now_add=True)
+    liked_at = models.DateTimeField(auto_now_add=True, verbose_name='Liked at')
+
 
 # =================================================================== 
 # CREATE TABLE CommentLikes (
@@ -74,8 +75,8 @@ class Likes(models.Model):
 # );
 class CommentLikes(models.Model):
     comment_id = models.ForeignKey(Comments, related_name="comment_likes", on_delete=models.CASCADE)
-    post_id = models.ForeignKey(Users, related_name="comment_likes", on_delete=models.CASCADE)
-    likedat = models.DateTimeField(auto_now_add=True)
+    user_id = models.ForeignKey(Users, related_name="comment_likes", on_delete=models.CASCADE)
+    liked_at = models.DateTimeField(auto_now_add=True)
 
 # =================================================================== 
 # CREATE TABLE Testimonials (
@@ -86,6 +87,7 @@ class CommentLikes(models.Model):
 #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 # );
 class Testimonials(models.Model):
+    avatar = models.CharField(max_length=255, default="/media/avatar/default.png")
     name = models.CharField(max_length=32)
     designation = models.CharField(max_length=255, null=True)
     comment = models.TextField()
